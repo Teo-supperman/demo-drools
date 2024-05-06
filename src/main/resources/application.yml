@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: demo-drools
+server:
+  port: 6060
+logging:
+  level:
+    ['com.example.drools'] : debug

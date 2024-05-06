@@ -1,0 +1,28 @@
+import com.example.drools.model.Order;
+import com.example.drools.model.OrderDto.Request;
+global com.example.drools.model.OrderDto.Response response;
+
+dialect "mvel"
+
+rule "Age < 18 year old"
+    when
+        Request(age < 18)
+    then
+        System.out.println("==========Adding 50% discount for Kids=============");
+        response.setDiscount(response.getDiscount() + 10);
+end
+rule "Age = 18 year old"
+    when
+        Request(age < 18)
+    then
+        System.out.println("==========Adding 20% discount for 18+ =============");
+        response.setDiscount(response.getDiscount() + 20);
+end
+
+rule "Age > 18 year old"
+    when
+        Request(age < 18)
+    then
+        System.out.println("==========Adding 0% discount for > 18 =============");
+        response.setDiscount(0);
+end
